@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    username: 'lawtiwqxwptcsc'
+    password: '4884bcdc927ddae04b93213321ec29ffa8fb8532bc9d160339cae92ab9734cc0'
+    url: 'jdbc:postgresql://ec2-52-208-138-246.eu-west-1.compute.amazonaws.com:5432/dfbkoidhforq9j'
+    continue-on-error: true
+
+
+
+  data:
+    rest:
+      base-path: /api
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+  jooq:
+    sql-dialect: 'org.hibernate.dialect.PostgreSQL95Dialect'
