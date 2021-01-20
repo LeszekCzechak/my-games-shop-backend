@@ -5,8 +5,10 @@ import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
 import org.springframework.http.HttpMethod;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import pl.czechak.leszek.mygamesshopbackend.model.Country;
 import pl.czechak.leszek.mygamesshopbackend.model.Product;
 import pl.czechak.leszek.mygamesshopbackend.model.ProductCategory;
+import pl.czechak.leszek.mygamesshopbackend.model.State;
 
 import javax.persistence.EntityManager;
 import javax.persistence.metamodel.EntityType;
@@ -35,6 +37,16 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
 
         config.getExposureConfiguration()
                 .forDomainType(ProductCategory.class)
+                .withItemExposure((metdata, httpMethods) -> httpMethods.disable(theUnsuportedActions))
+                .withCollectionExposure((metdata, httpMethods) -> httpMethods.disable(theUnsuportedActions));
+
+        config.getExposureConfiguration()
+                .forDomainType(Country.class)
+                .withItemExposure((metdata, httpMethods) -> httpMethods.disable(theUnsuportedActions))
+                .withCollectionExposure((metdata, httpMethods) -> httpMethods.disable(theUnsuportedActions));
+
+        config.getExposureConfiguration()
+                .forDomainType(State.class)
                 .withItemExposure((metdata, httpMethods) -> httpMethods.disable(theUnsuportedActions))
                 .withCollectionExposure((metdata, httpMethods) -> httpMethods.disable(theUnsuportedActions));
 
